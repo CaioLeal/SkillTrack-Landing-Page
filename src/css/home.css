@@ -1,0 +1,329 @@
+section {
+    /* background-image: radial-gradient(#470964, #791fd3); COLOCADO NO BODY DO STYLE.CSS */
+    height: 100vh;
+    position: relative;
+
+
+    & .list {
+        width: 70vw;
+        height: 100%;
+        margin: auto; /* AUTO centraliza as coisas automaticamente */
+        position: relative;
+
+        & .item {
+            position: absolute;
+            inset: 0;
+
+            & .item-image {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 32%;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(0deg); /* rotacionando a imagem a 30 graus */
+                }
+
+                &::before { /* colocando sombra */
+                    content: '';
+                    position: absolute;
+                    background-color: #000;
+                    width: 100%;
+                    height: 100px;
+                    top: 150%;
+                    left: 50px;
+                    border-radius: 50%;
+                    filter: blur(50px);
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .information {
+                    font-weight: bold;
+                }
+
+                & h2 {
+                    font-size: 8em;
+                    line-height: 1em;
+                    font-family: 'League Gothic', sans-serif;
+                }
+
+                & .description {
+                    color: #d9d9d9; /* Mudar COR Variavel */
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 400px;
+                }
+
+                & .information-btn {
+                    border-radius: 30px; /* Arredondando Borda*/
+                    height: 35px;
+                    width: 120px;
+                    text-transform: uppercase; /* Deixando letra sempre maiuscula*/
+                    border: 2px solid #791fd3; /* Mudar COR Variavel */
+                    background-color: #beff1b; /* Mudar COR Variavel */
+                    color: #000; /* Mudar COR Variavel */
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-family: 'League Gothic', sans-serif;
+                }
+            }
+        }
+
+        &::before { /* criando o efeito da linha */
+            content: '';
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            top: 50%;
+            border-top: 1px solid #fff;
+        }
+    }
+
+    .arrows {
+
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px); /* colocando cada um em um canto*/
+        display: flex; /* colocando pra poder colocar cada seta em um canto*/
+        justify-content: space-between; /* criando espaçamento entre os itens*/
+
+        & button:nth-child(1) {/* Pegando o primeiro botão */
+
+            & img {
+                transform: scale(-1);/* invertendo o botão para ficar cada um de um lado */
+            }
+        }
+
+        & button {
+            top: 60%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+
+
+            & img {
+                width: 30px;
+                margin-top: 4px; /* deixando seta dentro do botão menos torta */
+                cursor: pointer;
+            }
+
+            &:hover { /* hover é ao clicar no botão ele vai fazer uma ação */
+                background-color: #beff1b; /* Mudar COR Variavel */
+            }
+        }
+    }
+
+    .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column; /*colocando um abaixo do outro */
+        justify-content: end;
+        gap: 15px;
+
+        & .number {
+            font-size: 5em;
+            font-family: 'League Gothic', sans-serif;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #beff1b; /* Mudar COR Variavel */
+                border-radius: 5px;
+                transition: .5s;
+            }
+
+            & .active {
+                background-color: #fff; /* Mudar COR Variavel */
+            }
+        }
+    }
+
+}
+
+section {
+
+    & .list {
+    --calculation: 1;
+
+        & .item {
+            transform: translateX(calc(100vw * var(--calculation))); /* faz as outras imagens não activas sumirem */
+            transition: .5s;
+            opacity: 0;
+
+            & .item-image {
+                & img {
+                    transition: rotate(0); /* faz a imagem dar uma inclinada */
+                    transition: .5s;
+                    transition-delay: .3s; /* dando um delay */
+                }
+            }
+
+            & .content {
+
+                & .information,
+                h2,
+                .description,
+                .information-btn {
+                    transform: translateX(calc(200px * var(--calculation)));
+                    transition: .7s;
+                    transition-delay: .3s; /* dando um delay diferente */
+                    opacity: 0;
+                }
+
+                & h2 {
+                    transition-delay: .5s; /* dando um delay diferente */
+                }
+
+                & .description {
+                    transition-delay: .7s; /* dando um delay diferente */
+                }
+
+                & .information-btn {
+                    transition-delay: .9s; /* dando um delay diferente */
+                }
+            }
+        }
+
+        & .active {
+            transform: translateX(0);
+            transition: .5s;
+            opacity: 1;
+
+            & .item-image {
+                & img {
+                    transform: rotate(0deg); /* faz a imagem dar uma inclinada */
+                }
+            }
+
+            & .content {
+
+                & .information,
+                h2,
+                .description,
+                .information-btn {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* AJUSTES PARA DISPOSITIVOS MÓVEIS da SECTION */
+@media (max-width: 768px) {
+    html, body { 
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    section {
+        touch-action: pan-y; 
+        
+        & .list {
+            width: 90vw; 
+
+            & .item {
+                & .item-image {
+                    width: 75%; /* Foto do jogador maior */
+                    top: 35%;   /* Posição da foto */
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    
+                    &::before { display: none; }
+                }
+
+                & .content {
+                    right: 0;
+                    width: 100%;
+                    align-items: center; 
+                    justify-content: flex-end; 
+                    padding-bottom: 40px;
+                    gap: 8px;
+
+                    & .information {
+                        font-size: 0.9em;
+                        text-align: center;
+                        margin-top: 15px; /* Espaço para as bolinhas acima */
+                    }
+
+                    & h2 {
+                        font-size: 3.5em; /* Ajuste para caber nomes longos */
+                        text-align: center;
+                    }
+
+                    & .description {
+                        font-size: 13px; 
+                        text-align: center;
+                        max-width: 100%;
+                        line-height: 1.4;
+                    }
+
+                    & .btn-default {
+                        margin-top: 15px;
+                        align-self: center; 
+                    }
+                }
+            }
+
+            &::before { display: none; }
+        }
+
+        .arrows { display: none; }
+
+        /* MOVER BOLINHAS PARA BAIXO DO JOGADOR */
+        .indicators {
+            top: unset; 
+            bottom: 48%; /* Posiciona acima do nome do time e abaixo do jogador */
+            left: 50%;
+            transform: translateX(-50%);
+            height: auto;
+            width: auto;
+            flex-direction: row; 
+            justify-content: center;
+            z-index: 5;
+
+            & .number { display: none; }
+
+            & ul {
+                display: flex;
+                gap: 12px;
+                & li {
+                    width: 10px; /* Transforma em bolinhas */
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: var(--color-secondary-3);
+                }
+            }
+        }
+    }
+}

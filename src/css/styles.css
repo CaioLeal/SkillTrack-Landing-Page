@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@import url('./header.css');
+@import url('./variables.css');
+@import url('./home.css');
+@import url('./navbar.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: radial-gradient(var(--color-primary-3), var(--color-primary-2)); /* Definindo cor com gradiente */;
+    color: #fff;
+    overflow: hidden; /* Removendo Scroll */
+}
+
+@media (min-width: 768px) {
+    #container {
+        /* Se tiver uma imagem desktop, troque o caminho aqui */
+        background-image: url('../images/background-desktop.png'); 
+        background-size: cover;
+        background-position: start;
+        background-repeat: no-repeat;
+    }
+
+    #trending {
+        .trending-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+    }
+
+    #news {
+        min-height: 100vh;
+        gap: 8rem;
+
+        .products-cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+
+            .product-card {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    .footer-container {  
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-column {
+        min-width: unset;
+        text-align: center; /* Centraliza tudo no mobile */
+    }
+    .footer-social {
+        order: -1; /* Isso joga o bloco do GitHub para o topo de todos no mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o ícone e o texto */
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    #container {
+        /* Se tiver uma imagem desktop, troque o caminho aqui */
+        background-image: url('../images/background-desktop.png'); 
+        background-size: cover;
+        background-position: start;
+        background-repeat: no-repeat;
+    }
+
+    #trending {
+        .trending-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+    }
+
+    #news {
+        min-height: 100vh;
+        gap: 8rem;
+
+        .products-cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+
+            .product-card {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    .footer-container {  
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-column {
+        min-width: unset;
+        text-align: center; /* Centraliza tudo no mobile */
+    }
+    .footer-social {
+        order: -1; /* Isso joga o bloco do GitHub para o topo de todos no mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o ícone e o texto */
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    #container {
+        /* Se tiver uma imagem desktop, troque o caminho aqui */
+        background-image: url('../images/background-desktop.png'); 
+        background-size: cover;
+        background-position: start;
+        background-repeat: no-repeat;
+    }
+
+    #trending {
+        .trending-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+    }
+
+    #news {
+        min-height: 100vh;
+        gap: 8rem;
+
+        .products-cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+
+            .product-card {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    .footer-container {  
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-column {
+        min-width: unset;
+        text-align: center; /* Centraliza tudo no mobile */
+    }
+    .footer-social {
+        order: -1; /* Isso joga o bloco do GitHub para o topo de todos no mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o ícone e o texto */
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #about {
+        margin: 4%;
+        justify-content: center;
+
+        .about-content {
+            flex-direction: row;
+            align-items: center;
+            gap: 48px;
+        }
+        /* Definindo a ordem de cada item*/
+        .about-image {
+            order: 1;
+        }
+
+        .about-info:first-child {
+            order: 2;
+        }
+
+        .about-info:last-child {
+            order: 3;
+        }
+
+    }
+}

@@ -1,0 +1,119 @@
+header {
+    background-color: var(--color-primary-3);
+    padding: 12px 4%; 
+    position: sticky; /* FIXANDO QUANDO ROLAR A PAGINA */
+    top: 0; /* FIXANDO QUANDO ROLAR A PAGINA */
+    z-index: 1; /* FIXANDO QUANDO ROLAR A PAGINA */
+    transition: box-shadow 0.3s ease; /* Sombra mais suave ao rolar a pagina*/
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            width: 180px;
+        }
+
+        ul {
+            display: none; /*Removendo as infos do menu inicial para aparecerem apenas no menu hamburguer*/
+            list-style: none; /*Removendo os pontinhos*/
+            flex-direction: column; /*Deixando os ul um encima do outro*/
+            gap: 0.5rem; /*Dando espaçamento*/
+            width: 100%;
+            position: absolute; /*pra ele ficar embaixo*/
+            top: 80px;
+            background-color: transparent;
+            left: 0;
+            padding: 1rem; /*Dando espaçamento entre eles*/
+
+            &.show {
+                display: flex;
+            }
+
+            li {
+                text-align: center; /*Definindo as li pro centro*/
+
+                a {
+                    color: var(--color-neutral-0);
+                    text-decoration: none; /*Tirando os risquinhos de baixo*/
+                    font-size: 1rem;
+                    font-weight: 500; /*Deixando font mais escura*/
+                    transition: all 0.3s ease; /*botando uma transição quando passar o mouse*/
+
+                    &:hover { /*Definindo cor ao passar o mouse */
+                        color: var(--color-secondary-3);
+                        border-bottom: 1px solid var(--color-secondary-3); /*Definindo borda ao passar o mouse */
+                    }
+                }
+            }
+        }
+
+        .btn-default {
+            display: none;
+        }
+    }
+}
+ /* INICIO BOTÃO */
+a.btn {
+    text-decoration: none; /* Removendo o traçado embaixo */
+}
+
+.btn {
+    padding: 10px 20px; /*Definindo tamanho do botão */
+    border: none; /*Retirando as bordas do botão */
+    border-radius: 8px; /*Arrendondando os cantos */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600; /*Deixando font mais escura*/
+    background-color: transparent; /*Deixando botão transparente*/
+    transition: background-color .3s ease;
+}
+
+.btn-mobile {
+    font-size: 1.5rem;
+}
+
+.btn-default {
+    background-color: var(--color-secondary-3);
+    color: var(--color-primary-3);
+
+    &:hover {
+        background-color: var(--color-secondary-1);
+    }
+}
+
+.btn-outlined {
+    background-color: transparent;
+    border: 2px solid var(--color-primary-1);
+
+    &:hover {
+        background-color: var(--color-primary-1);
+        color: var(--color-neutral-0);
+        transition: background-color .9s ease;
+    }
+}
+/* FIM BOTÃO */
+
+@media (min-width: 769px) {
+    header {
+        .navbar {
+            .btn-mobile {
+                display: none;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                gap: 1rem;
+                width: auto;
+                padding: 0;
+            }
+
+            .btn-default {
+                display: block;
+            }
+        }
+    }
+}
